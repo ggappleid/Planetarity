@@ -21,7 +21,12 @@ namespace Entitas.Features.Input
 
         public void Cleanup()
         {
-            if (UnityEngine.Input.GetMouseButtonUp(0))
+            if (!UnityEngine.Input.GetMouseButtonUp(0))
+            {
+                return;
+            }
+            
+            if (_input.hasScreenClick)
             {
                 _input.RemoveScreenClick();
             }
